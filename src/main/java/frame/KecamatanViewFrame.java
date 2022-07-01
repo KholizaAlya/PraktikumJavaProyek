@@ -96,7 +96,7 @@ public class KecamatanViewFrame extends JFrame{
                 TableModel tm = viewTable.getModel();
                 int id = Integer.parseInt(tm.getValueAt(barisTerpilih,0).toString());
                 Connection c = Koneksi.getConnection();
-                String deleteSQL = "DELETE FROM kabupaten WHERE id = ?";
+                String deleteSQL = "DELETE FROM kecamatan WHERE id = ?";
                 try {
                     PreparedStatement ps = c.prepareStatement(deleteSQL);
                     ps.setInt(1, id);
@@ -110,7 +110,7 @@ public class KecamatanViewFrame extends JFrame{
 
         //tambah button
         tambahButton.addActionListener(e -> {
-            KabupatenInputFrame inputFrame = new KabupatenInputFrame();
+            KecamatanInputFrame inputFrame = new KecamatanInputFrame();
             inputFrame.setVisible(true);
         });
 
@@ -125,7 +125,7 @@ public class KecamatanViewFrame extends JFrame{
             }
             TableModel tm = viewTable.getModel();
             int id = Integer.parseInt(tm.getValueAt(barisTerpilih, 0).toString());
-            KabupatenInputFrame inputFrame = new KabupatenInputFrame();
+            KecamatanInputFrame inputFrame = new KecamatanInputFrame();
             inputFrame.setId(id);
             inputFrame.isiKomponen();
             inputFrame.setVisible(true);
@@ -137,7 +137,7 @@ public class KecamatanViewFrame extends JFrame{
 
     public void init() {
         setContentPane(mainPanel);
-        setTitle("Data Kabupaten");
+        setTitle("Data Kecamatan");
         pack();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
